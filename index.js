@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-var prefix = "b!"
 
 client.on('message', message => {
 var prefix = "!"; // Diamond Codes - [Allwai]
